@@ -77,12 +77,20 @@ public class MyFileIndexing implements FileIndexing {
 					if (x == linePos) {
 						if (content.equalsIgnoreCase(name.concat(" ").concat(number))) {
 							found = true;
+							linePos++;
+							break;
+						} else {
+							linePos++;
 							break;
 						}
 					} else if (linePos > x) {
+						linePos++;
 						break;
 					}
 					linePos++;
+				}
+				if (found) {
+					break;
 				}
 			}
 

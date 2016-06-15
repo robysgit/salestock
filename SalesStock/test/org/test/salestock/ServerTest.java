@@ -9,6 +9,7 @@ public class ServerTest {
 		Server s = new Server("D:\\salestock\\blacklist.txt", new MyFileIndexing());
 		System.out.println(s.checkBlacklist("Andi", "1341441"));
 		System.out.println(s.checkBlacklist("Melisa", "1341441"));
-		System.out.println(s.checkBlacklist("Melisa", "8565467"));
+		System.out.println(s.checkBlacklist("Melisa", "8565468"));
+		System.out.println(s.checkBlacklist("Melisa", "8565469"));
 	}
 }
