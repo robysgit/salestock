@@ -22,7 +22,14 @@ public class Server {
 	}
 
 	public boolean checkBlacklist(String name, String number) {
-		return this.fileIndexing.findData(name.toLowerCase().trim(), number.trim());
+		if (name == null || number == null) {
+			return false;
+		} else {
+			if (name.isEmpty() || number.isEmpty()) {
+				return false;
+			}
+			return this.fileIndexing.findData(name.toLowerCase().trim(), number.trim());
+		}
 	}
 
 }
