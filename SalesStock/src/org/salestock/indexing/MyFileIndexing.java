@@ -75,12 +75,11 @@ public class MyFileIndexing implements FileIndexing {
 			for (Long x : lineIndex) {
 				for (String content = null; (content = br2.readLine()) != null;) {
 					if (x == linePos) {
+						linePos++;
 						if (content.equalsIgnoreCase(name.concat(" ").concat(number))) {
 							found = true;
-							linePos++;
 							break;
 						} else {
-							linePos++;
 							break;
 						}
 					} else if (linePos > x) {
