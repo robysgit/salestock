@@ -79,6 +79,8 @@ public class MyFileIndexing implements FileIndexing {
 							found = true;
 							break;
 						}
+					} else if (linePos > x) {
+						break;
 					}
 					linePos++;
 				}
