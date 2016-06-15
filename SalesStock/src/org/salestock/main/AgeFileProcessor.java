@@ -50,6 +50,8 @@ public class AgeFileProcessor {
 				number = map.get(line) != null ? map.get(line) : 0;
 				map.put(line, number + 1);
 			}
+
+			br.close();
 			// Sorting
 			Map<Integer, Long> sortedMap = new TreeMap<Integer, Long>();
 			for (Map.Entry<String, Long> entry : map.entrySet()) {

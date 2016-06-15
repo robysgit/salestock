@@ -23,6 +23,37 @@ public class FileUtil {
 		return false;
 	}
 
+	public static void appendToFile(long content, String path, String fileName) throws IOException {
+		BufferedWriter bw = null;
+		FileWriter fw = null;
+		try {
+			File file = new File(path + System.getProperty("file.separator") + fileName);
+
+			// if file doesnt exists, then create it
+			if (!file.exists()) {
+				file.createNewFile();
+			}
+
+			fw = new FileWriter(file.getAbsoluteFile(), true);
+			bw = new BufferedWriter(fw);
+			bw.write(String.valueOf(content));
+			bw.write(System.getProperty("line.separator"));
+
+		} catch (IOException e) {
+			log.log(Level.SEVERE, e.getMessage(), e);
+			throw new IOException(e);
+		} finally {
+			if (bw != null) {
+				bw.close();
+				bw = null;
+			}
+			if (fw != null) {
+				fw.close();
+				fw = null;
+			}
+		}
+	}
+
 	public static void writeToFile(Map<Integer, Long> content, String path, String fileName) throws IOException {
 		BufferedWriter bw = null;
 		FileWriter fw = null;
